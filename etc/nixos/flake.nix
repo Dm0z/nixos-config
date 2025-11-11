@@ -1,5 +1,5 @@
 {
-  description = "NixOS config with Spicetify";
+  description = "My NixOS config with Spicetify";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -14,13 +14,11 @@
     pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
   in {
     nixosConfigurations = {
-      # Replace this with your hostname
       nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix
 
-          # Import Spicetify module for NixOS
           spicetify-nix.nixosModules.default
 
           # Inline Spicetify configuration
@@ -33,8 +31,6 @@
                 enable = true;
                 theme = spicePkgs.themes.ziro;
                 colorScheme = "gray-dark";
-              
-		# Optional extras (advanced example)
 		enabledExtensions = with spicePkgs.extensions; [ adblock
 hidePodcasts shuffle
                 ];

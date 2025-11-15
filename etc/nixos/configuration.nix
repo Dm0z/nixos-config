@@ -146,8 +146,13 @@
   fonts.packages = with pkgs; [
   noto-fonts
   nerd-fonts.geist-mono
+  noto-fonts-cjk-sans
+  noto-fonts-cjk-serif
+  noto-fonts-emoji
  ];
 
+# Enables useEmbeddedBitmaps in NixOS
+fonts.fontconfig.useEmbeddedBitmaps = true;
 
   #Enables flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
